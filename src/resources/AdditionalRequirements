@@ -1,0 +1,13 @@
+Additional Requirements for Part I and Part II :
+
+Your program must read input from files located in a directory called "resources". 
+Make sure to use relative path instead of specifying the entire path (such as /Users/alicew/myworkspace/so_on_and_so_forth).
+
+If the first exact match is found, stop fromfindSubset() and print it out. If there is no exact match found, 
+go through all combination of sublists and print out the first closest match.
+
+Show enough runs to prove your algorithm works, and show at least one run that does not meet target, exactly.
+Also, provide a special test to quickly dispose of the case in which the target is larger than the sum of all elements in the master set. 
+This way, any target that is too large will not have to sit through a long and painful algorithm. 
+Demonstrate that this works by providing at least one run that seeks a target larger than the sum of all master set elements.
+Modify the test file to include additional test cases.

@@ -1,0 +1,42 @@
+Notation:
+
+If L is a list of positive integers from S (i.e. a subset) and x is member of S, 
+then we let L + x denote the augmented sub-list derived from L by adding (i.e., appending) x to the set L.
+
+For example, if L = {4, 1, 7} then L + 2 = {4, 1, 7, 2} sum(L) will mean the sum of elements in set L. 
+So, sum( {4, 1, 7} ) = 12. Col will be some collection of sub-lists.
+
+For example, if S = {4, 1, 7}, Col might be { {}, {4, 1}, {4, 7} } (we count the empty subset, {} as a list in the collection if we want it there).
+ 
+
+An exact, but not particularly fast, algorithm to find the subset L' with the sum(L') as large as possible but less than or equal to t is as follows:
+
+Initialize the collection Col with one sub-list: the empty sub-list.
+Loop over all elements x in S
+Loop over all subsets, L, that are already members of Col
+if sum(L) + x < t, add the subset L + x to Col
+if sum(L) + x == t, break from both loops!
+Of all the subsets that end up in Col, find the subset L' with the largest sum()
+The set L' in the last step is the subset which has the largest sum, without going over the target, t.
+
+
+Random 10 ints: 5 7 13 14 3 17 9 3 11 20
+target: 37
+
+Create sub-lists:
+
+Col = {}
+1) 	// outer loop: 0 element (5)
+		0.1 inner loop: Col(0) = {}
+		if sum({}) + 5 < 37 == true: Col = {}, {5}
+		is sum({}) + 5 == 37: false
+
+Col = {}, {5}
+2)  //outer loop: 1 element (7)
+		1.1 inner loop: Col(0) = {0}
+		if sum(0) + 7 < 37 == true: Col = {}, {7}
+		if sum(0) + 7 == 37: false
+		
+		1.2 inner loop" Col(1) = {5}
+		if sum(5) + 7 < 37 == true: Col = {}, {5}, {7}
+		if sum(5) + 7 == 37: false
